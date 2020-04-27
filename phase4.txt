@@ -1,0 +1,1160 @@
+Last login: Thu Apr 23 16:53:06 on console
+(base) Keneishas-MBP:~ keneishawiggan$ mysql -u root -p
+Enter password: 
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 8
+Server version: 8.0.19 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> create database music_store
+    -> ;
+Query OK, 1 row affected (0.13 sec)
+
+mysql> USE music_store;
+Database changed
+
+mysql> CREATE TABLE CUSTOMER(
+    -> zip_code INT,
+    -> city VARCHAR(50),
+    -> firstName VARCHAR(20),
+    -> lastName VARCHAR(20),
+    -> password VARCHAR(20));
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> DROP TABLE CUSTOMER;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> CREATE TABLE CUSTOMER(
+    -> userName VARCHAR(50) PRIMARY KEY,
+    -> zip_code INT,
+    -> city VARCHAR(50),
+    -> firstName VARCHAR(20),
+    -> lastName VARCHAR(20),
+    -> password VARCHAR(20));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> SHOW TABLES
+    -> ;
++-----------------------+
+| Tables_in_music_store |
++-----------------------+
+| CUSTOMER              |
++-----------------------+
+1 row in set (0.01 sec)
+
+mysql> SELECT * FROM CUSTOMER
+    -> l
+    -> ;
+Empty set (0.00 sec)
+
+mysql> select * from customer;
+Empty set (0.00 sec)
+
+mysql> SELECT * FROM CUSTOMER;
+Empty set (0.00 sec)
+
+mysql> CREATE TABLE ORDERS (
+    -> orderID INT PRIMARY KEY,
+    -> date DATE,
+    -> items_total INT);
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> CREATE TABLE ALBUM(
+    -> album_ID VARCHAR(50) PRIMARY KEY,
+    -> genre VARCHAR(50),
+    -> artist VARCHAR(50),
+    -> release_date INT,
+    -> length INT,
+    -> cost INT,
+    -> soundtrack VARCHAR(200));
+Query OK, 0 rows affected (0.03 sec)
+
+mysql> CREATE TABLE SOUNDTRACK(
+    -> soundtrack_ID INT PRIMARY KEY,
+    -> cost INT,
+    -> artist VARCHAR(20),
+    -> soundtrack_name VARCHAR(20),
+    -> release_date INT);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> CREATE TABLE ARTIST(
+    -> name VARCHAR(20) PRIMARY KEY,
+    -> soundtrack VARCHAR(25),
+    -> Album VARCHAR (25),
+    -> Featured_Artist VARCHAR(25));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE PURCHASED_ITEMS(
+    -> OrderID INT,
+    -> albumID INT,
+    -> soundtrackID INT);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE FEATURED_ARTIST(
+    -> soundtrackID INT,
+    -> .
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '.' at line 3
+mysql> CREATE TABLE FEATURED_ARTIST(
+    -> artist_Name VARCHAR(20),
+    -> soundtrackID INT);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> mysql> INSERT INTO CUSTOMER("kwiggan", 29115, "Orangeburg", "Ken", "Wiggan", 123);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '("kwiggan", 29115, "Orangeburg", "Ken", "Wiggan", 123)' at line 1
+mysql> INSERT INTO CUSTOMER VALUES("kwiggan", 29115, "Orangeburg", "Ken", "Wiggan", 123);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES("Jbrown", 11321, "New York", "John", "Brown", 456);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES("Sman", 11121, "Brooklyn", "Sam", "Man", 444);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES("Rlarmond", 11236, "Orangeburg", "Rushay", "Larmond", 1121);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES("Twilliams", 45678, "Redmond", "Terry", "Williams", 1111);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES("JBrownie", 44444, "New York", "Jonny", "Brownie", 1212);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES("Sewell",11236, "Orangeburg", "Shantal", "Ewell", 11233);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES("Rcharles", 11114, "Columbia", "Rae", "Charles", "Cat12");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES("Bwiggan", 11233, "Washington", "Beyonce", "Wiggan", "Dog22");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES("Ksavizon", 44563, "Portland", "Kemar", "Savizon", "Me112");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES("Rshelton", 11236, "Florida", "Romain", "Shelton", "R112");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES("Nwilliams", 11233, "Brooklyn", "Nadine", "Williams", "Tay12");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO CUSTOMER VALUES("Nstewart", 11444, "Ontario", "Natasha", "Stewart", "kk11");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> DROP TABLE ORDERS
+    -> ;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE ORDERS(
+    -> orderID INT PRIMARY KEY,
+    -> date DATE,
+    -> items_total INT,
+    -> userName VARCHAR(20));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> INSERT INTO ORDERS VALUES(00001, '2001-02-02',  27, "Rshelton");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ORDERS VALUES(00002, '2002-03-04', 17, "Sman");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ORDERS VALUES(00003, '2002-04-04', 27, "Brown");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO ORDERS VALUES(00008, '2003-07-06', 25, "Nstewart");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ORDERS VALUES(00091, '2007-02-07', 10, "Kwiggan");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ORDERS VALUES(00000, '2008-03-01', 18, "Rcharles");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ORDERS VALUES(00111, '2009-08-08', 56, "Kwiggan");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> -- dropping the album table to recreate it
+mysql> DROP TABLE ALBUM
+    -> ;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE ALBUM(
+    -> albumID VARCHAR(25) PRIMARY KEY,
+    -> genre VARCHAR(25),
+    -> artist VARCHAR(25),
+    -> release_year INT,
+    -> length INT,
+    -> cost INT,
+    -> sountrack_ID INT);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> -- populate the ABLUM table
+
+mysql> INSERT INTO ALBUM VALUES("Definition of real", "Hip-Hop", "Plies", 2001, 15,20, 1);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> DROP TABLE ALBUM;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> CREATE TABLE ALBUM(
+    -> albumID VARCHAR(25) PRIMARY KEY,
+    -> genre VARCHAR(25),
+    -> artist VARCHAR(25),
+    -> release_year INT,
+    -> length VARCHAR(10),
+    -> cost VARCHAR(10),
+    -> sountrack_ID INT);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> DROP TABLE ALBUM;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE ALBUM(
+    -> albumID VARCHAR(25) PRIMARY KEY,
+    -> genre VARCHAR(25),
+    -> artist VARCHAR(25),
+    -> release_year INT,
+    -> length VARCHAR(10),
+    -> cost VARCHAR(10),
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 7
+mysql> CREATE TABLE ALBUM(
+    -> albumID VARCHAR(25) PRIMARY KEY,
+    -> genre VARCHAR(25),
+    -> artist VARCHAR(25),
+    -> release_year INT,
+    -> length INT,
+    -> cost INT,
+    -> sountrack_ID INT);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Definition of real", "Hip-Hop", "Plies", 2001, 15,20, 1);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Death Before Dishonor", "Hip-Hop", "Pistols", 2002, 16, 19, 2);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Double up", "R&B", "R.Kelly", 2003, 14, 25, 3);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Teflon Don", "R&B", "Rick Ross", 2004, 16, 30, 4);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Chapter V", "R&B", "Tray Songs", 2005, 14, 20, 5);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Sweet Dreams", "Hip-Hop", "Fabolous", 2006, 16, 26, 6);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Fantasy", "Hip-Hop", "Plies", 2007, 15, 18, 7);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Here I am", "Souls", "Usher", 2008, 15, 21, 8);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Because of you", "Souls", "Neyo", 2009, 16, 23, 9);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Confession", "R&B", "Usher", 2010, 16, 28, 10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> DROP TABLE ALBUM
+    -> ;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> -- REDOING ALBUM TABLE
+mysql> CREATE TABLE ALBUM(
+    -> albumID VARCHAR(25) PRIMARY KEY,
+    -> genre VARCHAR(25),
+    -> artist VARCHAR(25),
+    -> release_year INT,
+    -> cost INT,
+    -> soundtrack VARCHAR(100));
+Query OK, 0 rows affected (0.01 sec)
+
+
+mysql> DROP TABLE ALBUM;
+Query OK, 0 rows affected (0.01 sec)
+
+
+mysql> CREATE TABLE ALBUM(
+    -> albumID VARCHAR(25) PRIMARY KEY,
+    ->  genre VARCHAR(25),
+    -> artist VARCHAR(25),
+    -> release_year INT,
+    -> length INT,
+    -> cost INT,
+    -> soundtrack_1 VARCHAR(30),
+    -> soundtrack_2 VARCHAR (30),
+    -> soundtrack_3 VARCHAR(30));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> INSERT INTO ALBUM(
+    -> "Definition of real", "Hip-Hop", "Plies", 2001, 15, 20, "Bust it baby", "Shawthy", "Watch Dis");
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '"Definition of real", "Hip-Hop", "Plies", 2001, 15, 20, "Bust it baby", "Shawthy' at line 2
+mysql>  INSERT INTO ALBUM VALUES("Definition of real", "Hip-Hop", "Plies", 2001, 15, 20, "Bust it baby", "Shawthy", "Watch Dis");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Death Before Honor", "Hip-Hop", "Pistols", 2002, 16, 19, "She got it", "Lets ride", "we run it");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Double up", "R&B", "R.Kelly", 2003, 14, 25, "Amma flirt", "Hook it up", "Get dirty");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Teflon Don", "R&B", "Rick Ross", 2004, 16, 30, "Aston Martin Music",
+    -> "I'm a star");
+ERROR 1136 (21S01): Column count doesn't match value count at row 1
+mysql> INSERT INTO ALBUM VALUES("Teflon Don", "R&B", "Rick Ross", 2004, 16, 30, "Aston Martin Music", "Super High", "I'm a star");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Chapter V", "R&B", "Tray Songs", 2005, 14, 20, "Dive in", "Hail Mary", "Playin Hard");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Sweet Dreams", "Hip-Hop", "Fabolous", 2006, 16, 26, "so into you", "call me", "throw back");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Fantasy", "Hip-Hop", "Plies", 2007, 15, 18, "Shawthy", "We still smoking", "The art of making war");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Here I am", "Souls", "Usher", 2008, 15, 21, "Love in this club", "His mistakes", "Best thing");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Because of you", "Souls", "Neyo", 2009, 16, 23, "Because of you", "Crazy", "Angel");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Confession", "R&B", "Usher", 2010, 16, 28, "Burn", "Yeah", "Bad girl");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Look what you made me", "Hip-Hop", "Yung Berg", 2011, 17, 17, "The business", "Outerspace", "One night");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Rock me tonight", "Souls",
+    -> "Freddie Jackson", 2012, 14, 30, "Rock me tonight", "Jam tonight", "Do me again");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Album x", "R&B", "Chris Brown", "2014", 16, 27, "New Flame", "Loyal", "Stereotype");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ALBUM VALUES("Turning Point", "R&B", "Mario", 2015, 17, 28, "Let me love you", "Shake down", "Boom");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> DROP TABLE SOUNDTRACK;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> -- RE-CREATE SOUNDTRACK TABLE
+mysql> CREATE TABLE SOUNDTRACK(
+    -> soundtrack_ID INT PRIMARY KEY,
+    -> artist VARCHAR(20),
+    -> soundtrack_name VARCHAR(20),
+    -> release_year INT,
+    -> cost INT);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> -- POPULATE SOUNDTRACK TABLE
+mysql> INSERT INTO SOUNDTRACK VALUES(12, "Plies", "Bust it Baby", 2001, 16);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO SOUNDTRACK VALUES(13, "Pistols", "She got it bad", 2002, 11);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SOUNDTRACK VALUES(14, "R.Kelly", "Amma flirt", 2003, 12);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SOUNDTRACK VALUES(15, "Rick Ross", "Aston Martin Music", 2004, 10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SOUNDTRACK VALUES(16, "Tray Songs", "Dive in", 2005, 12);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SOUNDTRACK VALUES(18, "Fabolous", "So into you", 2006, 13);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SOUNDTRACK VALUES(19, "Plies", "Shawthy", 2007, 14);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SOUNDTRACK VALUES(20, "Usher", "Love in this club", 2008, 7);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SOUNDTRACK VALUES(21, "Yung Berg", "The Business", 2009, 8);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SOUNDTRACK VALUES(22, "Freddie Jackson", "Rock me tonight", 2011, 13);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SOUNDTRACK VALUES(23, "Neyo", "Because of you", 2010, 10);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SOUNDTRACK VALUES(24, "Heather Headly", "I wish I wasn't", 2012, 12);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SOUNDTRACK VALUES(25, "Keri Hilson", "Knock you down", 2013, 14);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SOUNDTRACK VALUES(26, "Chris Brown", "New Flame", 2014, 13);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SOUNDTRACK VALUES(27, "Usher", "Burn", 2015, 16);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO SOUNDTRACK VALUES(28, "Mario", "Let me love you", 2016, 15);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> Drop table ARTIST;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> -- RE-CREATE ARTIST TABLE
+mysql> CREATE TABLE ARTIST(
+    -> artist VARCHAR(20) PRIMARY KEY,
+    -> soundtrack VARCHAR(20),
+    -> ablumID VARCHAR(30),
+    -> featured_artist VARCHAR(30));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> INSERT INTO ARTIST VALUES("Plies", "Bust it baby", "Definition of Real", "Neyo");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO ARTIST VALUES("Pistols", "She got it bad", "Death Before Dishonor", "T-Pain");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ARTIST VALUES("R.Kelly", "Amma flirt", "Double up", "T.I");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ARTIST VALUES("Rick Ross", "Aston Martin Music", "Teflon Don", "Drake");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ARTIST VALUES("Tray Songs", "Dive in", "Chapter V", "N/A");
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO ARTIST VALUES("Plies", "Shawty", "Fantasy", "T-Pain");
+ERROR 1062 (23000): Duplicate entry 'Plies' for key 'artist.PRIMARY'
+mysql> INSERT INTO ARTIST VALUES("Fabolous", "So into you", "Sweet dreams", "Tamia");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ARTIST VALUES("Usher", "Love in this club", "Here I stand", "N/A");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ARTIST VALUES("Yung Berg", "The Business", "Look what you made me do", "Casha");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ARTIST VALUES("Neyo", "Because of you", "Because of you", "N/A");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ARTIST VALUES("Freddie Jackson", "Rock me tonight", "Rock me tonight", "N/A");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ARTIST VALUES("Heather Headly", "I wish I wasn't", "This is who I am", "N/A");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ARTIST VALUES("Keri Hilson", "Knock you down", "In a perfect world", "Kenye West");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ARTIST VALUES("Chris Brown", "New Flame", "Album X", "Usher");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO ARTIST VALUES("Mario", "Let me love you", "Turning Point", "N/A");
+Query OK, 1 row affected (0.00 sec)
+
+mysql> CREATE TABLE PURCHASED_ITEMS(
+    -> orderID INT);
+ERROR 1050 (42S01): Table 'purchased_items' already exists
+mysql> DROP TABLE PURCHASED_ITEMS;
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE PURCHASED_ITEMS(
+    -> orderID INT);
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> INSERT INTO PURCHASED_ITEMS VALUES(00001);
+Query OK, 1 row affected (0.01 sec)
+
+mysql> INSERT INTO PURCHASED_ITEMS VALUES(00002);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> NSERT INTO PURCHASED_ITEMS VALUES(00003);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'NSERT INTO PURCHASED_ITEMS VALUES(00003)' at line 1
+mysql> INSERT INTO PURCHASED_ITEMS VALUES(00003);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO PURCHASED_ITEMS VALUES(00008);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO PURCHASED_ITEMS VALUES(00091);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO PURCHASED_ITEMS VALUES(00000);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> INSERT INTO PURCHASED_ITEMS VALUES(00111);
+Query OK, 1 row affected (0.00 sec)
+
+
+mysql> SHOW TABLES
+    -> ;
++-----------------------+
+| Tables_in_music_store |
++-----------------------+
+| ALBUM                 |
+| ARTIST                |
+| CUSTOMER              |
+| FEATURED_ARTIST       |
+| ORDERS                |
+| PURCHASED_ITEMS       |
+| SOUNDTRACK            |
++-----------------------+
+7 rows in set (0.01 sec)
+
+mysql> SHOW * FROM ARTIST;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '* FROM ARTIST' at line 1
+mysql> DESC ALBUM;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| albumID      | varchar(25) | NO   | PRI | NULL    |       |
+| genre        | varchar(25) | YES  |     | NULL    |       |
+| artist       | varchar(25) | YES  |     | NULL    |       |
+| release_year | int         | YES  |     | NULL    |       |
+| length       | int         | YES  |     | NULL    |       |
+| cost         | int         | YES  |     | NULL    |       |
+| soundtrack_1 | varchar(30) | YES  |     | NULL    |       |
+| soundtrack_2 | varchar(30) | YES  |     | NULL    |       |
+| soundtrack_3 | varchar(30) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+9 rows in set (0.02 sec)
+
+mysql> DESC ARTIST;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| artist          | varchar(20) | NO   | PRI | NULL    |       |
+| soundtrack      | varchar(20) | YES  |     | NULL    |       |
+| ablumID         | varchar(30) | YES  |     | NULL    |       |
+| featured_artist | varchar(30) | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> DESC CUSTOMER;
++-----------+-------------+------+-----+---------+-------+
+| Field     | Type        | Null | Key | Default | Extra |
++-----------+-------------+------+-----+---------+-------+
+| userName  | varchar(50) | NO   | PRI | NULL    |       |
+| zip_code  | int         | YES  |     | NULL    |       |
+| city      | varchar(50) | YES  |     | NULL    |       |
+| firstName | varchar(20) | YES  |     | NULL    |       |
+| lastName  | varchar(20) | YES  |     | NULL    |       |
+| password  | varchar(20) | YES  |     | NULL    |       |
++-----------+-------------+------+-----+---------+-------+
+6 rows in set (0.00 sec)
+
+mysql> DESC FEATURED_ARTIST
+    -> ;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| artist_Name  | varchar(20) | YES  |     | NULL    |       |
+| soundtrackID | int         | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+2 rows in set (0.01 sec)
+
+mysql> DESC ORDER;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER' at line 1
+mysql> DESC ORDERS;
++-------------+-------------+------+-----+---------+-------+
+| Field       | Type        | Null | Key | Default | Extra |
++-------------+-------------+------+-----+---------+-------+
+| orderID     | int         | NO   | PRI | NULL    |       |
+| date        | date        | YES  |     | NULL    |       |
+| items_total | int         | YES  |     | NULL    |       |
+| userName    | varchar(20) | YES  |     | NULL    |       |
++-------------+-------------+------+-----+---------+-------+
+4 rows in set (0.01 sec)
+
+mysql> DESC PURCHASED_ITEMS;
++---------+------+------+-----+---------+-------+
+| Field   | Type | Null | Key | Default | Extra |
++---------+------+------+-----+---------+-------+
+| orderID | int  | YES  |     | NULL    |       |
++---------+------+------+-----+---------+-------+
+1 row in set (0.00 sec)
+
+-- show the structure for soundtrack
+
+mysql> DESC SOUNDTRACK;
++-----------------+-------------+------+-----+---------+-------+
+| Field           | Type        | Null | Key | Default | Extra |
++-----------------+-------------+------+-----+---------+-------+
+| soundtrack_ID   | int         | NO   | PRI | NULL    |       |
+| artist          | varchar(20) | YES  |     | NULL    |       |
+| soundtrack_name | varchar(20) | YES  |     | NULL    |       |
+| release_year    | int         | YES  |     | NULL    |       |
+| cost            | int         | YES  |     | NULL    |       |
++-----------------+-------------+------+-----+---------+-------+
+5 rows in set (0.01 sec)
+
+mysql> SELECT * FROM ARTIST;
++-----------------+--------------------+--------------------------+-----------------+
+| artist          | soundtrack         | ablumID                  | featured_artist |
++-----------------+--------------------+--------------------------+-----------------+
+| Chris Brown     | New Flame          | Album X                  | Usher           |
+| Fabolous        | So into you        | Sweet dreams             | Tamia           |
+| Freddie Jackson | Rock me tonight    | Rock me tonight          | N/A             |
+| Heather Headly  | I wish I wasn't    | This is who I am         | N/A             |
+| Keri Hilson     | Knock you down     | In a perfect world       | Kenye West      |
+| Mario           | Let me love you    | Turning Point            | N/A             |
+| Neyo            | Because of you     | Because of you           | N/A             |
+| Pistols         | She got it bad     | Death Before Dishonor    | T-Pain          |
+| Plies           | Bust it baby       | Definition of Real       | Neyo            |
+| R.Kelly         | Amma flirt         | Double up                | T.I             |
+| Rick Ross       | Aston Martin Music | Teflon Don               | Drake           |
+| Tray Songs      | Dive in            | Chapter V                | N/A             |
+| Usher           | Love in this club  | Here I stand             | N/A             |
+| Yung Berg       | The Business       | Look what you made me do | Casha           |
++-----------------+--------------------+--------------------------+-----------------+
+14 rows in set (0.01 sec)
+
+mysql> SELECT * FROM ALBUM;
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+| albumID               | genre   | artist          | release_year | length | cost | soundtrack_1       | soundtrack_2     | soundtrack_3          |
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+| Album x               | R&B     | Chris Brown     |         2014 |     16 |   27 | New Flame          | Loyal            | Stereotype            |
+| Because of you        | Souls   | Neyo            |         2009 |     16 |   23 | Because of you     | Crazy            | Angel                 |
+| Chapter V             | R&B     | Tray Songs      |         2005 |     14 |   20 | Dive in            | Hail Mary        | Playin Hard           |
+| Confession            | R&B     | Usher           |         2010 |     16 |   28 | Burn               | Yeah             | Bad girl              |
+| Death Before Honor    | Hip-Hop | Pistols         |         2002 |     16 |   19 | She got it         | Lets ride        | we run it             |
+| Definition of real    | Hip-Hop | Plies           |         2001 |     15 |   20 | Bust it baby       | Shawthy          | Watch Dis             |
+| Double up             | R&B     | R.Kelly         |         2003 |     14 |   25 | Amma flirt         | Hook it up       | Get dirty             |
+| Fantasy               | Hip-Hop | Plies           |         2007 |     15 |   18 | Shawthy            | We still smoking | The art of making war |
+| Here I am             | Souls   | Usher           |         2008 |     15 |   21 | Love in this club  | His mistakes     | Best thing            |
+| Look what you made me | Hip-Hop | Yung Berg       |         2011 |     17 |   17 | The business       | Outerspace       | One night             |
+| Rock me tonight       | Souls   | Freddie Jackson |         2012 |     14 |   30 | Rock me tonight    | Jam tonight      | Do me again           |
+| Sweet Dreams          | Hip-Hop | Fabolous        |         2006 |     16 |   26 | so into you        | call me          | throw back            |
+| Teflon Don            | R&B     | Rick Ross       |         2004 |     16 |   30 | Aston Martin Music | Super High       | I'm a star            |
+| Turning Point         | R&B     | Mario           |         2015 |     17 |   28 | Let me love you    | Shake down       | Boom                  |
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+14 rows in set (0.00 sec)
+
+mysql> SELECT * FROM CUSTOMER;
++-----------+----------+------------+-----------+----------+----------+
+| userName  | zip_code | city       | firstName | lastName | password |
++-----------+----------+------------+-----------+----------+----------+
+| Bwiggan   |    11233 | Washington | Beyonce   | Wiggan   | Dog22    |
+| Jbrown    |    11321 | New York   | John      | Brown    | 456      |
+| JBrownie  |    44444 | New York   | Jonny     | Brownie  | 1212     |
+| Ksavizon  |    44563 | Portland   | Kemar     | Savizon  | Me112    |
+| kwiggan   |    29115 | Orangeburg | Ken       | Wiggan   | 123      |
+| Nstewart  |    11444 | Ontario    | Natasha   | Stewart  | kk11     |
+| Nwilliams |    11233 | Brooklyn   | Nadine    | Williams | Tay12    |
+| Rcharles  |    11114 | Columbia   | Rae       | Charles  | Cat12    |
+| Rlarmond  |    11236 | Orangeburg | Rushay    | Larmond  | 1121     |
+| Rshelton  |    11236 | Florida    | Romain    | Shelton  | R112     |
+| Sewell    |    11236 | Orangeburg | Shantal   | Ewell    | 11233    |
+| Sman      |    11121 | Brooklyn   | Sam       | Man      | 444      |
+| Twilliams |    45678 | Redmond    | Terry     | Williams | 1111     |
++-----------+----------+------------+-----------+----------+----------+
+13 rows in set (0.00 sec)
+
+-- show all featured artists
+
+mysql> SELECT * FROM FEATURED_ARTIST
+    -> ;
+Empty set (0.00 sec)
+
+-- show all orders
+
+mysql> SELECT * FROM ORDERS;
++---------+------------+-------------+----------+
+| orderID | date       | items_total | userName |
++---------+------------+-------------+----------+
+|       0 | 2008-03-01 |          18 | Rcharles |
+|       1 | 2001-02-02 |          27 | Rshelton |
+|       2 | 2002-03-04 |          17 | Sman     |
+|       3 | 2002-04-04 |          27 | Brown    |
+|       8 | 2003-07-06 |          25 | Nstewart |
+|      91 | 2007-02-07 |          10 | Kwiggan  |
+|     111 | 2009-08-08 |          56 | Kwiggan  |
++---------+------------+-------------+----------+
+7 rows in set (0.00 sec)
+
+-- show all purchased items
+
+mysql> SELECT * FROM PURCHASED_ITEMS;
++---------+
+| orderID |
++---------+
+|       1 |
+|       2 |
+|       3 |
+|       8 |
+|      91 |
+|       0 |
+|     111 |
++---------+
+7 rows in set (0.00 sec)
+
+-- Show all soundtracks
+
+mysql> SELECT * FROM SOUNDTRACK;
++---------------+-----------------+--------------------+--------------+------+
+| soundtrack_ID | artist          | soundtrack_name    | release_year | cost |
++---------------+-----------------+--------------------+--------------+------+
+|            12 | Plies           | Bust it Baby       |         2001 |   16 |
+|            13 | Pistols         | She got it bad     |         2002 |   11 |
+|            14 | R.Kelly         | Amma flirt         |         2003 |   12 |
+|            15 | Rick Ross       | Aston Martin Music |         2004 |   10 |
+|            16 | Tray Songs      | Dive in            |         2005 |   12 |
+|            18 | Fabolous        | So into you        |         2006 |   13 |
+|            19 | Plies           | Shawthy            |         2007 |   14 |
+|            20 | Usher           | Love in this club  |         2008 |    7 |
+|            21 | Yung Berg       | The Business       |         2009 |    8 |
+|            22 | Freddie Jackson | Rock me tonight    |         2011 |   13 |
+|            23 | Neyo            | Because of you     |         2010 |   10 |
+|            24 | Heather Headly  | I wish I wasn't    |         2012 |   12 |
+|            25 | Keri Hilson     | Knock you down     |         2013 |   14 |
+|            26 | Chris Brown     | New Flame          |         2014 |   13 |
+|            27 | Usher           | Burn               |         2015 |   16 |
+|            28 | Mario           | Let me love you    |         2016 |   15 |
++---------------+-----------------+--------------------+--------------+------+
+16 rows in set (0.00 sec)
+
+-- Show albums with Spicy in AlbumID
+
+mysql> SELECT * FROM ALBUM WHERE albumID LIKE "%Spicy%";
+Empty set (0.00 sec)
+
+-- show all albums
+
+mysql> SELECT * FROM ALBUM;
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+| albumID               | genre   | artist          | release_year | length | cost | soundtrack_1       | soundtrack_2     | soundtrack_3          |
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+| Album x               | R&B     | Chris Brown     |         2014 |     16 |   27 | New Flame          | Loyal            | Stereotype            |
+| Because of you        | Souls   | Neyo            |         2009 |     16 |   23 | Because of you     | Crazy            | Angel                 |
+| Chapter V             | R&B     | Tray Songs      |         2005 |     14 |   20 | Dive in            | Hail Mary        | Playin Hard           |
+| Confession            | R&B     | Usher           |         2010 |     16 |   28 | Burn               | Yeah             | Bad girl              |
+| Death Before Honor    | Hip-Hop | Pistols         |         2002 |     16 |   19 | She got it         | Lets ride        | we run it             |
+| Definition of real    | Hip-Hop | Plies           |         2001 |     15 |   20 | Bust it baby       | Shawthy          | Watch Dis             |
+| Double up             | R&B     | R.Kelly         |         2003 |     14 |   25 | Amma flirt         | Hook it up       | Get dirty             |
+| Fantasy               | Hip-Hop | Plies           |         2007 |     15 |   18 | Shawthy            | We still smoking | The art of making war |
+| Here I am             | Souls   | Usher           |         2008 |     15 |   21 | Love in this club  | His mistakes     | Best thing            |
+| Look what you made me | Hip-Hop | Yung Berg       |         2011 |     17 |   17 | The business       | Outerspace       | One night             |
+| Rock me tonight       | Souls   | Freddie Jackson |         2012 |     14 |   30 | Rock me tonight    | Jam tonight      | Do me again           |
+| Sweet Dreams          | Hip-Hop | Fabolous        |         2006 |     16 |   26 | so into you        | call me          | throw back            |
+| Teflon Don            | R&B     | Rick Ross       |         2004 |     16 |   30 | Aston Martin Music | Super High       | I'm a star            |
+| Turning Point         | R&B     | Mario           |         2015 |     17 |   28 | Let me love you    | Shake down       | Boom                  |
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+14 rows in set (0.00 sec)
+
+-- Add new order for Keneisha
+
+mysql> INSERT INTO ORDERS(orderID, date, items_total, userName) VALUES (120, "2020-04-26", 40, "Keneisha;
+    "> ;
+    "> ");
+Query OK, 1 row affected (0.00 sec)
+
+-- show all albums
+
+mysql> select * from album;
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+| albumID               | genre   | artist          | release_year | length | cost | soundtrack_1       | soundtrack_2     | soundtrack_3          |
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+| Album x               | R&B     | Chris Brown     |         2014 |     16 |   27 | New Flame          | Loyal            | Stereotype            |
+| Because of you        | Souls   | Neyo            |         2009 |     16 |   23 | Because of you     | Crazy            | Angel                 |
+| Chapter V             | R&B     | Tray Songs      |         2005 |     14 |   20 | Dive in            | Hail Mary        | Playin Hard           |
+| Confession            | R&B     | Usher           |         2010 |     16 |   28 | Burn               | Yeah             | Bad girl              |
+| Death Before Honor    | Hip-Hop | Pistols         |         2002 |     16 |   19 | She got it         | Lets ride        | we run it             |
+| Definition of real    | Hip-Hop | Plies           |         2001 |     15 |   20 | Bust it baby       | Shawthy          | Watch Dis             |
+| Double up             | R&B     | R.Kelly         |         2003 |     14 |   25 | Amma flirt         | Hook it up       | Get dirty             |
+| Fantasy               | Hip-Hop | Plies           |         2007 |     15 |   18 | Shawthy            | We still smoking | The art of making war |
+| Here I am             | Souls   | Usher           |         2008 |     15 |   21 | Love in this club  | His mistakes     | Best thing            |
+| Look what you made me | Hip-Hop | Yung Berg       |         2011 |     17 |   17 | The business       | Outerspace       | One night             |
+| Rock me tonight       | Souls   | Freddie Jackson |         2012 |     14 |   30 | Rock me tonight    | Jam tonight      | Do me again           |
+| Sweet Dreams          | Hip-Hop | Fabolous        |         2006 |     16 |   26 | so into you        | call me          | throw back            |
+| Teflon Don            | R&B     | Rick Ross       |         2004 |     16 |   30 | Aston Martin Music | Super High       | I'm a star            |
+| Turning Point         | R&B     | Mario           |         2015 |     17 |   28 | Let me love you    | Shake down       | Boom                  |
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+14 rows in set (0.00 sec)
+
+-- show all orders
+
+mysql> select * from orders
+    -> ;
++---------+------------+-------------+--------------+
+| orderID | date       | items_total | userName     |
++---------+------------+-------------+--------------+
+|       0 | 2008-03-01 |          18 | Rcharles     |
+|       1 | 2001-02-02 |          27 | Rshelton     |
+|       2 | 2002-03-04 |          17 | Sman         |
+|       3 | 2002-04-04 |          27 | Brown        |
+|       8 | 2003-07-06 |          25 | Nstewart     |
+|      91 | 2007-02-07 |          10 | Kwiggan      |
+|     111 | 2009-08-08 |          56 | Kwiggan      |
+|     120 | 2020-04-26 |          40 | Keneisha;
+;
+ |
++---------+------------+-------------+--------------+
+8 rows in set (0.00 sec)
+
+-- delete order with orderID 120
+
+mysql> DELETE FROM ORDERS WHERE orderID = 120;
+Query OK, 1 row affected (0.01 sec)
+
+-- show all orders
+
+mysql> SELECT * FROM ORDERS
+    -> ;
++---------+------------+-------------+----------+
+| orderID | date       | items_total | userName |
++---------+------------+-------------+----------+
+|       0 | 2008-03-01 |          18 | Rcharles |
+|       1 | 2001-02-02 |          27 | Rshelton |
+|       2 | 2002-03-04 |          17 | Sman     |
+|       3 | 2002-04-04 |          27 | Brown    |
+|       8 | 2003-07-06 |          25 | Nstewart |
+|      91 | 2007-02-07 |          10 | Kwiggan  |
+|     111 | 2009-08-08 |          56 | Kwiggan  |
++---------+------------+-------------+----------+
+7 rows in set (0.00 sec)
+
+-- Add a new album
+
+mysql> INSERT INTO ALBUM(albumID, genre, artist, release_year) VALUES ("Album Y", "Hip-Hop", "Keneisha", 2040);
+Query OK, 1 row affected (0.01 sec)
+
+-- Show all albums
+
+mysql> SELECT * FROM ALBUM;
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+| albumID               | genre   | artist          | release_year | length | cost | soundtrack_1       | soundtrack_2     | soundtrack_3          |
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+| Album x               | R&B     | Chris Brown     |         2014 |     16 |   27 | New Flame          | Loyal            | Stereotype            |
+| Album Y               | Hip-Hop | Keneisha        |         2040 |   NULL | NULL | NULL               | NULL             | NULL                  |
+| Because of you        | Souls   | Neyo            |         2009 |     16 |   23 | Because of you     | Crazy            | Angel                 |
+| Chapter V             | R&B     | Tray Songs      |         2005 |     14 |   20 | Dive in            | Hail Mary        | Playin Hard           |
+| Confession            | R&B     | Usher           |         2010 |     16 |   28 | Burn               | Yeah             | Bad girl              |
+| Death Before Honor    | Hip-Hop | Pistols         |         2002 |     16 |   19 | She got it         | Lets ride        | we run it             |
+| Definition of real    | Hip-Hop | Plies           |         2001 |     15 |   20 | Bust it baby       | Shawthy          | Watch Dis             |
+| Double up             | R&B     | R.Kelly         |         2003 |     14 |   25 | Amma flirt         | Hook it up       | Get dirty             |
+| Fantasy               | Hip-Hop | Plies           |         2007 |     15 |   18 | Shawthy            | We still smoking | The art of making war |
+| Here I am             | Souls   | Usher           |         2008 |     15 |   21 | Love in this club  | His mistakes     | Best thing            |
+| Look what you made me | Hip-Hop | Yung Berg       |         2011 |     17 |   17 | The business       | Outerspace       | One night             |
+| Rock me tonight       | Souls   | Freddie Jackson |         2012 |     14 |   30 | Rock me tonight    | Jam tonight      | Do me again           |
+| Sweet Dreams          | Hip-Hop | Fabolous        |         2006 |     16 |   26 | so into you        | call me          | throw back            |
+| Teflon Don            | R&B     | Rick Ross       |         2004 |     16 |   30 | Aston Martin Music | Super High       | I'm a star            |
+| Turning Point         | R&B     | Mario           |         2015 |     17 |   28 | Let me love you    | Shake down       | Boom                  |
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+15 rows in set (0.00 sec)
+
+-- remove Album Y form albums
+
+mysql> DELETE FROM ALBUM WHERE albumID = "Album Y";
+Query OK, 1 row affected (0.00 sec)
+
+-- change kwiggan's password to 1234
+
+mysql> UPDATE CUSTOMER SET password = 1234 WHERE userName = "kwiggan";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+-- show all customers
+
+mysql> SELECT * FROM CUSTOMER
+    -> ;
++-----------+----------+------------+-----------+----------+----------+
+| userName  | zip_code | city       | firstName | lastName | password |
++-----------+----------+------------+-----------+----------+----------+
+| Bwiggan   |    11233 | Washington | Beyonce   | Wiggan   | Dog22    |
+| Jbrown    |    11321 | New York   | John      | Brown    | 456      |
+| JBrownie  |    44444 | New York   | Jonny     | Brownie  | 1212     |
+| Ksavizon  |    44563 | Portland   | Kemar     | Savizon  | Me112    |
+| kwiggan   |    29115 | Orangeburg | Ken       | Wiggan   | 1234     |
+| Nstewart  |    11444 | Ontario    | Natasha   | Stewart  | kk11     |
+| Nwilliams |    11233 | Brooklyn   | Nadine    | Williams | Tay12    |
+| Rcharles  |    11114 | Columbia   | Rae       | Charles  | Cat12    |
+| Rlarmond  |    11236 | Orangeburg | Rushay    | Larmond  | 1121     |
+| Rshelton  |    11236 | Florida    | Romain    | Shelton  | R112     |
+| Sewell    |    11236 | Orangeburg | Shantal   | Ewell    | 11233    |
+| Sman      |    11121 | Brooklyn   | Sam       | Man      | 444      |
+| Twilliams |    45678 | Redmond    | Terry     | Williams | 1111     |
++-----------+----------+------------+-----------+----------+----------+
+13 rows in set (0.00 sec)
+
+-- set Sewell's city to Orangeburg
+
+mysql> UPDATE CUSTOMER SET city = "Orangeburg" WHERE userName = "Sewell";
+Query OK, 0 rows affected (0.00 sec)
+Rows matched: 1  Changed: 0  Warnings: 0
+
+-- show all current customers
+
+mysql> SELECT * FROM CUSTOMER;
++-----------+----------+------------+-----------+----------+----------+
+| userName  | zip_code | city       | firstName | lastName | password |
++-----------+----------+------------+-----------+----------+----------+
+| Bwiggan   |    11233 | Washington | Beyonce   | Wiggan   | Dog22    |
+| Jbrown    |    11321 | New York   | John      | Brown    | 456      |
+| JBrownie  |    44444 | New York   | Jonny     | Brownie  | 1212     |
+| Ksavizon  |    44563 | Portland   | Kemar     | Savizon  | Me112    |
+| kwiggan   |    29115 | Orangeburg | Ken       | Wiggan   | 1234     |
+| Nstewart  |    11444 | Ontario    | Natasha   | Stewart  | kk11     |
+| Nwilliams |    11233 | Brooklyn   | Nadine    | Williams | Tay12    |
+| Rcharles  |    11114 | Columbia   | Rae       | Charles  | Cat12    |
+| Rlarmond  |    11236 | Orangeburg | Rushay    | Larmond  | 1121     |
+| Rshelton  |    11236 | Florida    | Romain    | Shelton  | R112     |
+| Sewell    |    11236 | Orangeburg | Shantal   | Ewell    | 11233    |
+| Sman      |    11121 | Brooklyn   | Sam       | Man      | 444      |
+| Twilliams |    45678 | Redmond    | Terry     | Williams | 1111     |
++-----------+----------+------------+-----------+----------+----------+
+13 rows in set (0.00 sec)
+
+-- make Keneisha the artist for Sweet Dreams
+
+mysql> UPDATE ALBUM SET artist = "Keneisha" WHERE albumID = "Sweet Dreams";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+-- show current albums
+
+mysql> SELECT * FROM ALBUM;
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+| albumID               | genre   | artist          | release_year | length | cost | soundtrack_1       | soundtrack_2     | soundtrack_3          |
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+| Album x               | R&B     | Chris Brown     |         2014 |     16 |   27 | New Flame          | Loyal            | Stereotype            |
+| Because of you        | Souls   | Neyo            |         2009 |     16 |   23 | Because of you     | Crazy            | Angel                 |
+| Chapter V             | R&B     | Tray Songs      |         2005 |     14 |   20 | Dive in            | Hail Mary        | Playin Hard           |
+| Confession            | R&B     | Usher           |         2010 |     16 |   28 | Burn               | Yeah             | Bad girl              |
+| Death Before Honor    | Hip-Hop | Pistols         |         2002 |     16 |   19 | She got it         | Lets ride        | we run it             |
+| Definition of real    | Hip-Hop | Plies           |         2001 |     15 |   20 | Bust it baby       | Shawthy          | Watch Dis             |
+| Double up             | R&B     | R.Kelly         |         2003 |     14 |   25 | Amma flirt         | Hook it up       | Get dirty             |
+| Fantasy               | Hip-Hop | Plies           |         2007 |     15 |   18 | Shawthy            | We still smoking | The art of making war |
+| Here I am             | Souls   | Usher           |         2008 |     15 |   21 | Love in this club  | His mistakes     | Best thing            |
+| Look what you made me | Hip-Hop | Yung Berg       |         2011 |     17 |   17 | The business       | Outerspace       | One night             |
+| Rock me tonight       | Souls   | Freddie Jackson |         2012 |     14 |   30 | Rock me tonight    | Jam tonight      | Do me again           |
+| Sweet Dreams          | Hip-Hop | Keneisha        |         2006 |     16 |   26 | so into you        | call me          | throw back            |
+| Teflon Don            | R&B     | Rick Ross       |         2004 |     16 |   30 | Aston Martin Music | Super High       | I'm a star            |
+| Turning Point         | R&B     | Mario           |         2015 |     17 |   28 | Let me love you    | Shake down       | Boom                  |
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+14 rows in set (0.00 sec)
+
+-- remove kwiggan from customers
+
+mysql> DELETE FROM CUSTOMER WHERE userName = "kwiggan";
+Query OK, 1 row affected (0.01 sec)
+
+-- Show all current customers 
+
+mysql> SELECT * FROM CUSTOMER;
++-----------+----------+------------+-----------+----------+----------+
+| userName  | zip_code | city       | firstName | lastName | password |
++-----------+----------+------------+-----------+----------+----------+
+| Bwiggan   |    11233 | Washington | Beyonce   | Wiggan   | Dog22    |
+| Jbrown    |    11321 | New York   | John      | Brown    | 456      |
+| JBrownie  |    44444 | New York   | Jonny     | Brownie  | 1212     |
+| Ksavizon  |    44563 | Portland   | Kemar     | Savizon  | Me112    |
+| Nstewart  |    11444 | Ontario    | Natasha   | Stewart  | kk11     |
+| Nwilliams |    11233 | Brooklyn   | Nadine    | Williams | Tay12    |
+| Rcharles  |    11114 | Columbia   | Rae       | Charles  | Cat12    |
+| Rlarmond  |    11236 | Orangeburg | Rushay    | Larmond  | 1121     |
+| Rshelton  |    11236 | Florida    | Romain    | Shelton  | R112     |
+| Sewell    |    11236 | Orangeburg | Shantal   | Ewell    | 11233    |
+| Sman      |    11121 | Brooklyn   | Sam       | Man      | 444      |
+| Twilliams |    45678 | Redmond    | Terry     | Williams | 1111     |
++-----------+----------+------------+-----------+----------+----------+
+12 rows in set (0.00 sec)
+
+-- change release year of Album Sweet Dreams to 2020
+
+mysql> UPDATE ALBUM SET release_year = 2020 WHERE albumID = "Sweet Dreams";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+-- show everything in album
+
+mysql> SELECT * FROM ALBUM;
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+| albumID               | genre   | artist          | release_year | length | cost | soundtrack_1       | soundtrack_2     | soundtrack_3          |
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+| Album x               | R&B     | Chris Brown     |         2014 |     16 |   27 | New Flame          | Loyal            | Stereotype            |
+| Because of you        | Souls   | Neyo            |         2009 |     16 |   23 | Because of you     | Crazy            | Angel                 |
+| Chapter V             | R&B     | Tray Songs      |         2005 |     14 |   20 | Dive in            | Hail Mary        | Playin Hard           |
+| Confession            | R&B     | Usher           |         2010 |     16 |   28 | Burn               | Yeah             | Bad girl              |
+| Death Before Honor    | Hip-Hop | Pistols         |         2002 |     16 |   19 | She got it         | Lets ride        | we run it             |
+| Definition of real    | Hip-Hop | Plies           |         2001 |     15 |   20 | Bust it baby       | Shawthy          | Watch Dis             |
+| Double up             | R&B     | R.Kelly         |         2003 |     14 |   25 | Amma flirt         | Hook it up       | Get dirty             |
+| Fantasy               | Hip-Hop | Plies           |         2007 |     15 |   18 | Shawthy            | We still smoking | The art of making war |
+| Here I am             | Souls   | Usher           |         2008 |     15 |   21 | Love in this club  | His mistakes     | Best thing            |
+| Look what you made me | Hip-Hop | Yung Berg       |         2011 |     17 |   17 | The business       | Outerspace       | One night             |
+| Rock me tonight       | Souls   | Freddie Jackson |         2012 |     14 |   30 | Rock me tonight    | Jam tonight      | Do me again           |
+| Sweet Dreams          | Hip-Hop | Keneisha        |         2020 |     16 |   26 | so into you        | call me          | throw back            |
+| Teflon Don            | R&B     | Rick Ross       |         2004 |     16 |   30 | Aston Martin Music | Super High       | I'm a star            |
+| Turning Point         | R&B     | Mario           |         2015 |     17 |   28 | Let me love you    | Shake down       | Boom                  |
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+14 rows in set (0.01 sec)
+
+-- show album with their release year after 2010
+
+mysql> SELECT albumID, release_year FROM ALBUM HAVING release_year > 2010;
++-----------------------+--------------+
+| albumID               | release_year |
++-----------------------+--------------+
+| Album x               |         2014 |
+| Look what you made me |         2011 |
+| Rock me tonight       |         2012 |
+| Sweet Dreams          |         2020 |
+| Turning Point         |         2015 |
++-----------------------+--------------+
+5 rows in set (0.01 sec)
+
+-- Show orders and join with their customers
+
+mysql> SELECT CUSTOMER.firstName, CUSTOMER.lastName, CUSTOMER.zip_code, CUSTOMER.city, ORDERS.items_total, ORDERS.date FROM CUSTOMER INNER JOIN ORDERS ON CUSTOMER.userName = ORDERS.userName;
++-----------+----------+----------+----------+-------------+------------+
+| firstName | lastName | zip_code | city     | items_total | date       |
++-----------+----------+----------+----------+-------------+------------+
+| Rae       | Charles  |    11114 | Columbia |          18 | 2008-03-01 |
+| Romain    | Shelton  |    11236 | Florida  |          27 | 2001-02-02 |
+| Sam       | Man      |    11121 | Brooklyn |          17 | 2002-03-04 |
+| Natasha   | Stewart  |    11444 | Ontario  |          25 | 2003-07-06 |
++-----------+----------+----------+----------+-------------+------------+
+4 rows in set (0.00 sec)
+
+-- Show all albums ordering by most recent release year
+
+mysql> SELECT * FROM ALBUM ORDER BY release_year DESC;
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+| albumID               | genre   | artist          | release_year | length | cost | soundtrack_1       | soundtrack_2     | soundtrack_3          |
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+| Sweet Dreams          | Hip-Hop | Keneisha        |         2020 |     16 |   26 | so into you        | call me          | throw back            |
+| Turning Point         | R&B     | Mario           |         2015 |     17 |   28 | Let me love you    | Shake down       | Boom                  |
+| Album x               | R&B     | Chris Brown     |         2014 |     16 |   27 | New Flame          | Loyal            | Stereotype            |
+| Rock me tonight       | Souls   | Freddie Jackson |         2012 |     14 |   30 | Rock me tonight    | Jam tonight      | Do me again           |
+| Look what you made me | Hip-Hop | Yung Berg       |         2011 |     17 |   17 | The business       | Outerspace       | One night             |
+| Confession            | R&B     | Usher           |         2010 |     16 |   28 | Burn               | Yeah             | Bad girl              |
+| Because of you        | Souls   | Neyo            |         2009 |     16 |   23 | Because of you     | Crazy            | Angel                 |
+| Here I am             | Souls   | Usher           |         2008 |     15 |   21 | Love in this club  | His mistakes     | Best thing            |
+| Fantasy               | Hip-Hop | Plies           |         2007 |     15 |   18 | Shawthy            | We still smoking | The art of making war |
+| Chapter V             | R&B     | Tray Songs      |         2005 |     14 |   20 | Dive in            | Hail Mary        | Playin Hard           |
+| Teflon Don            | R&B     | Rick Ross       |         2004 |     16 |   30 | Aston Martin Music | Super High       | I'm a star            |
+| Double up             | R&B     | R.Kelly         |         2003 |     14 |   25 | Amma flirt         | Hook it up       | Get dirty             |
+| Death Before Honor    | Hip-Hop | Pistols         |         2002 |     16 |   19 | She got it         | Lets ride        | we run it             |
+| Definition of real    | Hip-Hop | Plies           |         2001 |     15 |   20 | Bust it baby       | Shawthy          | Watch Dis             |
++-----------------------+---------+-----------------+--------------+--------+------+--------------------+------------------+-----------------------+
+14 rows in set (0.01 sec)
+
+-- Create view for Orangeburg Residents
+
+mysql> CREATE VIEW OrangeburgResidents AS SELECT firstName, lastName, userName FROM CUSTOMER WHERE city = "Orangeburg";
+Query OK, 0 rows affected (0.03 sec)
+
+-- show all tables (with views)
+
+mysql> SHOW TABLES
+    -> ;
++-----------------------+
+| Tables_in_music_store |
++-----------------------+
+| ALBUM                 |
+| ARTIST                |
+| CUSTOMER              |
+| FEATURED_ARTIST       |
+| orangeburgresidents   |
+| ORDERS                |
+| PURCHASED_ITEMS       |
+| SOUNDTRACK            |
++-----------------------+
+8 rows in set (0.01 sec)
+
+-- show view for current Orangeburg Residents
+
+mysql> SELECT * FROM OrangeburgResidents
+    -> ;
++-----------+----------+----------+
+| firstName | lastName | userName |
++-----------+----------+----------+
+| Rushay    | Larmond  | Rlarmond |
+| Shantal   | Ewell    | Sewell   |
++-----------+----------+----------+
+2 rows in set (0.01 sec)
+
+-- update Customer Shantal's username
+
+mysql> UPDATE CUSTOMER SET userName = "ShantalEwell" WHERE userName = "Sewell";
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+-- show updated view for all Orangeburg Residents
+
+mysql> SELECT * FROM OrangeburgResidents;
++-----------+----------+--------------+
+| firstName | lastName | userName     |
++-----------+----------+--------------+
+| Rushay    | Larmond  | Rlarmond     |
+| Shantal   | Ewell    | ShantalEwell |
++-----------+----------+--------------+
+2 rows in set (0.01 sec)
+
+-- create view for R&B songs
+
+mysql> CREATE VIEW RnBHits AS SELECT albumID, artist, release_year, cost, soundtrack_1, soundtrack_2, soundtrack_3 FROM ALBUM HAVING release_year < 2012;
+Query OK, 0 rows affected (0.03 sec)
+
+-- showing all records in R&B Hits
+
+mysql> SELECT * FROM rnbhits;
++-----------------------+------------+--------------+------+--------------------+------------------+-----------------------+
+| albumID               | artist     | release_year | cost | soundtrack_1       | soundtrack_2     | soundtrack_3          |
++-----------------------+------------+--------------+------+--------------------+------------------+-----------------------+
+| Because of you        | Neyo       |         2009 |   23 | Because of you     | Crazy            | Angel                 |
+| Chapter V             | Tray Songs |         2005 |   20 | Dive in            | Hail Mary        | Playin Hard           |
+| Confession            | Usher      |         2010 |   28 | Burn               | Yeah             | Bad girl              |
+| Death Before Honor    | Pistols    |         2002 |   19 | She got it         | Lets ride        | we run it             |
+| Definition of real    | Plies      |         2001 |   20 | Bust it baby       | Shawthy          | Watch Dis             |
+| Double up             | R.Kelly    |         2003 |   25 | Amma flirt         | Hook it up       | Get dirty             |
+| Fantasy               | Plies      |         2007 |   18 | Shawthy            | We still smoking | The art of making war |
+| Here I am             | Usher      |         2008 |   21 | Love in this club  | His mistakes     | Best thing            |
+| Look what you made me | Yung Berg  |         2011 |   17 | The business       | Outerspace       | One night             |
+| Teflon Don            | Rick Ross  |         2004 |   30 | Aston Martin Music | Super High       | I'm a star            |
++-----------------------+------------+--------------+------+--------------------+------------------+-----------------------+
+10 rows in set (0.01 sec)
+
+-- creating view for songs by usher
+
+mysql> CREATE VIEW UsherSongs AS SELECT albumID FROM ALBUM WHERE artist = "Usher";
+Query OK, 0 rows affected (0.01 sec)
+
+-- creating people in the orders view
+
+mysql> CREATE VIEW PeopleAndOrders AS SELECT CUSTOMER.firstName, CUSTOMER.lastName, CUSTOMER.zip_code, CUSTOMER.city, ORDERS.items_total, ORDERS.date FROM CUSTOMER INNER JOIN ORDERS ON CUSTOMER.userName = ORDERS.userName;
+Query OK, 0 rows affected (0.01 sec)
+
+-- showing songs by usher in view
+
+mysql> SELECT * FROM UsherSongs;
++------------+
+| albumID    |
++------------+
+| Confession |
+| Here I am  |
++------------+
+2 rows in set (0.00 sec)
+
+-- showing the people in the orders view
+
+mysql> SELECT * FROM PeopleAndOrders;
++-----------+----------+----------+----------+-------------+------------+
+| firstName | lastName | zip_code | city     | items_total | date       |
++-----------+----------+----------+----------+-------------+------------+
+| Rae       | Charles  |    11114 | Columbia |          18 | 2008-03-01 |
+| Romain    | Shelton  |    11236 | Florida  |          27 | 2001-02-02 |
+| Sam       | Man      |    11121 | Brooklyn |          17 | 2002-03-04 |
+| Natasha   | Stewart  |    11444 | Ontario  |          25 | 2003-07-06 |
++-----------+----------+----------+----------+-------------+------------+
+4 rows in set (0.00 sec)
+
+mysql> 
